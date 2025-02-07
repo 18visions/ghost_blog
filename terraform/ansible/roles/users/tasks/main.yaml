@@ -1,8 +1,14 @@
 ---
+- name: Install python package passlib
+  pip:
+    name: passlib
+    state: present
+
 - name: Create new user "{{ new_user }}"
   user:
     name: "{{ new_user }}"
     shell: /bin/bash
+    password: "{{ mysql_root_password | password_hash('sha512') }}"
     state: present
     create_home: yes
 

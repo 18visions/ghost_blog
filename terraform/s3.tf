@@ -16,5 +16,5 @@ resource "aws_s3_object" "ghost-ansible" {
   bucket = aws_s3_bucket.ghost-ansible.bucket
   key    = "ghost/ghost-ansible.zip"
   source = data.archive_file.ghost-ansible.output_path
-  etag   = "${data.archive_file.ghost-ansible.output_md5}"
+  etag   = data.archive_file.ghost-ansible.output_md5
 }
