@@ -12,4 +12,4 @@ unzip ghost-ansible.zip
 echo 'preserve_hostname: true' >> /etc/cloud/cloud.cfg
 hostnamectl set-hostname ${hostname}
 
-/usr/local/bin/ansible-playbook -i "127.0.0.1," --connection=local install_ghost.yml
+/usr/local/bin/ansible-playbook -i "127.0.0.1," --connection=local install_ghost.yaml
