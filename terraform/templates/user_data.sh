@@ -5,7 +5,7 @@ yum install -y zip unzip python3-pip
 pip3 install ansible
 
 cd /root/
-aws s3 cp s3://${s3_bucket}/ghost/ghost-ansible.zip ghost-ansible.zip
+aws s3 cp s3://${s3_bucket}/ghost/ghost-ansible.zip .
 
 unzip ghost-ansible.zip
 
