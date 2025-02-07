@@ -3,5 +3,5 @@ resource "aws_route53_record" "ghost-web-001" {
   name    = "${var.environment}.${var.domain_name}"
   type    = "A"
   ttl     = "300"
-  records = [aws_instance.ghost-web-001.private_ip]
+  records = [aws_instance.ghost-web-001.public_ip]
 }
