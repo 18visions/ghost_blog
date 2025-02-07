@@ -28,3 +28,33 @@ resource "aws_instance" "ghost-web-001" {
     Platform = "Linux"
   }
 }
+
+resource "aws_dlm_lifecycle_policy" "weekly_snapshot" {
+  description        = "Weekly EBS snapshot policy for blog server"
+  execution_role_arn = aws_iam_role.dlm.arn
+  state              = "ENABLED"
+
+  policy_details {
+    resource_types = ["VOLUME"]
+
+    # Target volumes that have this tag
+    target_tags = {
+      Backup = "true"
+    }
+
+    schedule {
+      name = "weekly-snapshot"
+
+      # Create a snapshot every 1 week
+      create_rule {
+        interval      = 1
+        interval_unit = "WEEKS"
+      }
+
+      # Retain the last 2 snapshots
+      retain_rule {
+        count = 2
+      }
+    }
+  }
+}

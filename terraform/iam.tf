@@ -37,3 +37,20 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2FullAccess" {
     role       = aws_iam_role.ghost-role.name
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
+
+resource "aws_iam_role" "dlm" {
+  name = "DLMRole"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Service = "dlm.amazonaws.com"
+        },
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
