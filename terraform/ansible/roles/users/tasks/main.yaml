@@ -1,0 +1,13 @@
+---
+- name: Create new user "{{ new_user }}"
+  user:
+    name: "{{ new_user }}"
+    shell: /bin/bash
+    state: present
+    create_home: yes
+
+- name: Add user "{{ new_user }}" to sudo group
+  user:
+    name: "{{ new_user }}"
+    groups: sudo
+    append: yes

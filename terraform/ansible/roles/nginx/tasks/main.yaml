@@ -1,0 +1,11 @@
+---
+- name: Install NGINX
+  apt:
+    name: nginx
+    state: present
+  notify: restart nginx
+
+- name: Allow "Nginx Full" through UFW
+  ufw:
+    rule: allow
+    name: "Nginx Full"

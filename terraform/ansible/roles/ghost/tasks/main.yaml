@@ -1,0 +1,8 @@
+---
+- name: Create Ghost installation directory "{{ site_dir }}"
+  file:
+    path: "{{ site_dir }}"
+    state: directory
+    owner: "{{ new_user }}"
+    group: "{{ new_user }}"
+    mode: "0775"

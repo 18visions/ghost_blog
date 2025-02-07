@@ -1,0 +1,16 @@
+---
+- name: Install and configure Ghost blogging platform on Ubuntu EC2
+  hosts: all
+  become: yes
+  vars:
+    new_user: ghostuser
+    mysql_root_password: "your-new-root-password"
+    node_major: "18"
+    site_dir: "/var/www/nicholasturner"
+  roles:
+    - users
+    - system
+    - nginx
+    - mysql
+    - nodejs
+    - ghost
