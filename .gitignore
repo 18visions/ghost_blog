@@ -2,3 +2,4 @@
 /terraform/.terraform.lock.hcl
 /terraform/ghost-ansible.zip
 /terraform/terraform.tfstate
+/terraform/terraform.tfstate.backup
