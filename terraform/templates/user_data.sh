@@ -1,7 +1,8 @@
 #!/bin/bash -xe
 
-apt update -y && apt upgrade -y
-apt install -y zip unzip ansible-core
+
+yum install -y zip unzip python3-pip
+pip3 install ansible
 
 cd /root/
 aws s3 cp s3://${s3_bucket}/ghost/ghost-ansible.zip

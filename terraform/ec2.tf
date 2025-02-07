@@ -1,7 +1,7 @@
 # ec2 instance using t3.small
 resource "aws_instance" "ghost-web-001" {
   # base ubuntu image in aws
-  ami           = "ami-00c257e12d6828491"
+  ami           = "ami-0005ee01bca55ab66"
   instance_type = "t3.small"
   iam_instance_profile = aws_iam_instance_profile.ghost-web-prod.name
   vpc_security_group_ids = [aws_security_group.sg.id]
