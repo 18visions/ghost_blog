@@ -1,8 +1,12 @@
 #!/bin/bash -xe
 
+apt update -y && apt upgrade -y
+apt install zip unzip python3-pip -y
+pip install ansible
 
-yum install -y zip unzip python3-pip
-pip3 install ansible
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+./aws/install
 
 cd /root/
 aws s3 cp s3://${s3_bucket}/ghost/ghost-ansible.zip .

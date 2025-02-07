@@ -3,12 +3,18 @@
   apt:
     name: mysql-server
     state: present
+    update_cache: yes
 
 - name: Ensure MySQL service is started and enabled
   service:
     name: mysql
     state: started
     enabled: yes
+
+- name: Install PyMySQL
+  pip:
+    name: PyMySQL
+    state: present
 
 - name: Set MySQL root password and authentication method
   mysql_user:
