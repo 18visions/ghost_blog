@@ -2,7 +2,7 @@
 resource "aws_security_group" "sg" {
   name        = "sg"
   description = "Allow HTTPS traffic from the internet"
-  vpc_id      = data.vpcid.vpc.id
+  vpc_id      = data.aws_vpc.selected.id
 
   ingress {
     from_port   = 443

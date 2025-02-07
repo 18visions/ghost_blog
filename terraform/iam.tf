@@ -23,11 +23,6 @@ resource "aws_iam_role" "ghost-role" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "ghost-web-prod-ec2-ssm" {
-    role       = aws_iam_role.ghost-role.name
-    policy_arn = aws_iam_policy.ghost-policy.arn
-}
-
 resource "aws_iam_role_policy_attachment" "AmazonEC2RoleforSSM" {
     role       = aws_iam_role.ghost-role.name
     policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
