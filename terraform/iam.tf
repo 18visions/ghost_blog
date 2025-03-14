@@ -38,6 +38,11 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2FullAccess" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "DLMEC2" {
+  role      = aws_iam_role.dlm.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
 resource "aws_iam_role" "dlm" {
   name = "DLMRole"
 
